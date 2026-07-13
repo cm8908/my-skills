@@ -1,0 +1,13 @@
+{
+  "name": "cm8908-thirdparty",
+  "version": "0.1.0",
+  "description": "Vendored third-party skills that upstream does not distribute as plugins. Each skill folder records its origin and pinned commit in SOURCE.md. Skills that ARE published as plugins upstream should be referenced from the marketplace manifest instead of vendored here.",
+  "author": {
+    "name": "cm8908",
+    "url": "https://github.com/cm8908"
+  },
+  "homepage": "https://github.com/cm8908/my-skills/tree/main/plugins/cm8908-thirdparty",
+  "repository": "https://github.com/cm8908/my-skills",
+  "license": "MIT",
+  "keywords": ["third-party", "vendored", "curated", "skills"]
+}

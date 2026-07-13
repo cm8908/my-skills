@@ -1,0 +1,13 @@
+{
+  "name": "cm8908-custom",
+  "version": "0.1.0",
+  "description": "Catch-all home for cm8908's standalone custom skills. Every subdirectory of skills/ that contains a SKILL.md is auto-discovered — adding a skill needs no manifest edit.",
+  "author": {
+    "name": "cm8908",
+    "url": "https://github.com/cm8908"
+  },
+  "homepage": "https://github.com/cm8908/my-skills/tree/main/plugins/cm8908-custom",
+  "repository": "https://github.com/cm8908/my-skills",
+  "license": "MIT",
+  "keywords": ["custom", "personal", "skills"]
+}

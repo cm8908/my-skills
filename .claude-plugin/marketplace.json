@@ -1,0 +1,33 @@
+{
+  "name": "my-skills",
+  "owner": {
+    "name": "cm8908",
+    "url": "https://github.com/cm8908"
+  },
+  "metadata": {
+    "description": "cm8908's personal aggregator marketplace. One repo to add on any machine: custom Claude Code plugins/skills plus curated third-party skills."
+  },
+  "plugins": [
+    {
+      "name": "llm-wiki-meta",
+      "source": "./plugins/llm-wiki-meta",
+      "description": "Meta-level skills for managing a multi-category LLM wiki (Karpathy pattern): list/current/attach/detach/create/remove sub-wikis, plus attached-only wiki-ingest/query/lint dispatchers under a single top-level llm-wiki/ root.",
+      "category": "knowledge-management",
+      "tags": ["llm", "wiki", "knowledge-base", "karpathy", "obsidian"]
+    },
+    {
+      "name": "cm8908-custom",
+      "source": "./plugins/cm8908-custom",
+      "description": "Catch-all home for cm8908's standalone custom skills. Drop a skills/<name>/SKILL.md folder and it is auto-discovered — no manifest edit needed.",
+      "category": "productivity",
+      "tags": ["custom", "personal"]
+    },
+    {
+      "name": "cm8908-thirdparty",
+      "source": "./plugins/cm8908-thirdparty",
+      "description": "Vendored third-party skills that upstream does not ship as plugins. Each skill records its origin and pinned commit in SOURCE.md.",
+      "category": "productivity",
+      "tags": ["third-party", "vendored", "curated"]
+    }
+  ]
+}
