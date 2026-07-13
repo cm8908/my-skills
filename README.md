@@ -160,18 +160,19 @@ description: <이 스킬을 언제 써야 하는지를 트리거 문구 위주�
 }
 ```
 
-모노레포의 하위폴더인 경우 (`git-subdir` — `path` 지원):
+모노레포의 하위폴더인 경우 (`git-subdir` — `path` 지원). 이 레포에 실제로 등록된
+AKB 예시:
 
 ```jsonc
 {
-  "name": "cool-skill",
+  "name": "akb-wiki",
   "source": {
     "source": "git-subdir",
-    "url": "https://github.com/org/monorepo.git",
-    "path": "packages/cool-skill",
+    "url": "https://github.com/dnotitia/akb.git",
+    "path": "plugins/claude/akb-wiki",
     "ref": "main"
   },
-  "description": "…"
+  "description": "[third-party: dnotitia/akb] …"
 }
 ```
 
@@ -181,6 +182,39 @@ description: <이 스킬을 언제 써야 하는지를 트리거 문구 위주�
   source 하나라도 못 풀면 마켓플레이스 전체 로드가 실패한다.
 - 반영: `git push` → 각 서버에서 `/plugin marketplace update my-skills` →
   `/plugin install <name>@my-skills`.
+
+#### 현재 참조 중인 서드파티 (경로 A)
+
+[`dnotitia/akb`](https://github.com/dnotitia/akb) skillpack의 세 플러그인을
+`git-subdir`로 참조한다 (각 플러그인은 `plugins/claude/<name>/`에서 self-contained):
+
+| 플러그인 | 설명 |
+| --- | --- |
+| `akb-wiki` | AKB 볼트 문서 ingest/query. 공유 `akb` MCP 서버 탑재 — **먼저 설치**. |
+| `akb-sessions` | 코딩 세션을 구조화 노트(TIL/task/idea/decision)로 볼트에 기록. |
+| `akb-claude-code` | 세션 라이프사이클 훅 — 세션 시작 시 메모리 주입, compaction 전 스냅샷, 종료 시 recap. |
+
+```text
+/plugin marketplace update my-skills
+/plugin install akb-wiki@my-skills        # 먼저 (MCP 서버 포함)
+/plugin install akb-sessions@my-skills
+/plugin install akb-claude-code@my-skills
+```
+
+설치 시 `AKB_MCP_URL`(끝이 `/mcp/`)과 `AKB_PAT`를 물어본다. `dnotitia/akb`는 public
+이라 참조 fetch에는 별도 인증이 필요 없다(참조는 install 시점에만 해석됨).
+
+> **기존 `akb-skillpack` 정리(선택):** 이미 `dnotitia/akb`를 직접 마켓플레이스로
+> 추가해 `akb-*@akb-skillpack`을 설치한 상태라면, 같은 스킬/MCP가 중복 로드된다.
+> "레포 하나로 통일"하려면 옛것을 내린다:
+> ```text
+> /plugin uninstall akb-wiki@akb-skillpack
+> /plugin uninstall akb-sessions@akb-skillpack
+> /plugin uninstall akb-claude-code@akb-skillpack
+> /plugin marketplace remove akb-skillpack
+> ```
+> 반대로 dnotitia 공식 마켓플레이스를 직접 쓰는 게 편하면 그대로 둬도 된다 —
+> 그 경우 my-skills의 akb-* 참조는 install하지 않으면 그만이다.
 
 ### 경로 B — vendoring (자급자족, 수동 동기화)
 

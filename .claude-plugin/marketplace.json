@@ -28,6 +28,42 @@
       "description": "Vendored third-party skills that upstream does not ship as plugins. Each skill records its origin and pinned commit in SOURCE.md.",
       "category": "productivity",
       "tags": ["third-party", "vendored", "curated"]
+    },
+    {
+      "name": "akb-wiki",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/dnotitia/akb.git",
+        "path": "plugins/claude/akb-wiki",
+        "ref": "main"
+      },
+      "description": "[third-party: dnotitia/akb] LLM-wiki layer for AKB vaults — /akb-ingest (file/URL/GitHub PR·release·commit/Confluence/Jira) and /akb-query (grounded, cited, read-only). Carries the shared `akb` MCP server the other akb-* plugins reuse — install this first. Needs AKB_MCP_URL + AKB_PAT.",
+      "category": "knowledge-management",
+      "tags": ["third-party", "akb", "knowledge-base", "mcp", "reference"]
+    },
+    {
+      "name": "akb-sessions",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/dnotitia/akb.git",
+        "path": "plugins/claude/akb-sessions",
+        "ref": "main"
+      },
+      "description": "[third-party: dnotitia/akb] Capture a coding session into an AKB vault as structured notes — a session report plus parallel-drafted TIL/task/idea/decision sub-notes. Reuses akb-wiki's `akb` MCP server.",
+      "category": "knowledge-management",
+      "tags": ["third-party", "akb", "sessions", "notes", "reference"]
+    },
+    {
+      "name": "akb-claude-code",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/dnotitia/akb.git",
+        "path": "plugins/claude/akb-claude-code",
+        "ref": "main"
+      },
+      "description": "[third-party: dnotitia/akb] Claude Code lifecycle bridge (hooks only, no slash command): anchors each session to your AKB memory vault, injects prefs + recent learnings at session start, snapshots before context compaction, writes a recap at end.",
+      "category": "knowledge-management",
+      "tags": ["third-party", "akb", "hooks", "memory", "reference"]
     }
   ]
 }
