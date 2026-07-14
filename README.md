@@ -216,6 +216,22 @@ AKB 예시:
 > 반대로 dnotitia 공식 마켓플레이스를 직접 쓰는 게 편하면 그대로 둬도 된다 —
 > 그 경우 my-skills의 akb-* 참조는 install하지 않으면 그만이다.
 
+[`mattpocock/skills`](https://github.com/mattpocock/skills)의 `mattpocock-skills`
+플러그인(약 22개 스킬: grilling, to-spec/to-tickets/triage, tdd, code-review,
+domain-modeling, codebase-design, implement, prototype, research, handoff 등, MIT)을
+레포 루트 플러그인이라 `github` 소스로 참조한다.
+
+```text
+/plugin marketplace update my-skills
+/plugin install mattpocock-skills@my-skills   # /mattpocock-skills:<name> 으로 노출
+```
+
+> **중복 주의:** matt pocock 스킬을 `setup-matt-pocock-skills`나 `~/.claude/skills`
+> 심볼릭 링크로 이미 쓰고 있다면, 플러그인 설치 시 같은 스킬이 두 벌 뜬다. "레포
+> 하나로 통일"하려면 기존 링크/사본(예: `~/.claude/skills/{tdd,grill-me,handoff,…}`)을
+> 정리하고 플러그인 쪽만 남기는 걸 권장한다. 플러그인은 `/mattpocock-skills:` 네임스페이스로
+> 뜨므로 이름이 완전히 겹치지는 않지만, 내용이 동일해 혼선을 준다.
+
 ### 경로 B — vendoring (자급자족, 수동 동기화)
 
 업스트림 `SKILL.md`(+필요한 스크립트/자산)를 `cm8908-thirdparty/skills/<이름>/`에 복사하고,

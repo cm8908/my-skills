@@ -64,6 +64,17 @@
       "description": "[third-party: dnotitia/akb] Claude Code lifecycle bridge (hooks only, no slash command): anchors each session to your AKB memory vault, injects prefs + recent learnings at session start, snapshots before context compaction, writes a recap at end.",
       "category": "knowledge-management",
       "tags": ["third-party", "akb", "hooks", "memory", "reference"]
+    },
+    {
+      "name": "mattpocock-skills",
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills",
+        "ref": "main"
+      },
+      "description": "[third-party: mattpocock/skills] Matt Pocock's agent skills for real engineering — grilling, spec/ticket flows (to-spec/to-tickets/triage), TDD, code review, domain modelling, codebase design, implement, prototype, research, handoff, and more (~22 skills). MIT.",
+      "category": "engineering",
+      "tags": ["third-party", "engineering", "tdd", "code-review", "grilling", "reference"]
     }
   ]
 }
