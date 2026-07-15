@@ -232,6 +232,30 @@ domain-modeling, codebase-design, implement, prototype, research, handoff 등, M
 > 정리하고 플러그인 쪽만 남기는 걸 권장한다. 플러그인은 `/mattpocock-skills:` 네임스페이스로
 > 뜨므로 이름이 완전히 겹치지는 않지만, 내용이 동일해 혼선을 준다.
 
+[`epoko77-ai/im-not-ai`](https://github.com/epoko77-ai/im-not-ai)의 `humanize-korean`
+플러그인(AI가 쓴 한글을 사람 글처럼 윤문 — `humanize`(빠른 monolith)·`humanize-korean`(엄격
+5단계 파이프라인)·`humanize-redo` 3종 스킬 + 12개 서브에이전트, 10대 카테고리 40+ 번역투/AI 티
+탐지·재작성, MIT)을 레포 루트 플러그인이라 `github` 소스로 참조한다. 업스트림 `plugin.json`이
+`skills`를 `./.claude/skills/`로 이미 선언하므로 별도 skills override는 불필요.
+
+[`Imbad0202/academic-research-skills`](https://github.com/Imbad0202/academic-research-skills)의
+`academic-research-skills` 플러그인(학술 연구 파이프라인: research → write → review → revise →
+finalize, 4종 스킬 `academic-paper`/`academic-paper-reviewer`/`academic-pipeline`/`deep-research`,
+27 modes, 39-agent 앙상블 + claim-faithfulness·citation-verification 게이트, **CC-BY-NC-4.0
+비상업**)도 `github` 소스로 참조한다.
+
+> ⚠️ **skills override 필요.** 이 업스트림은 스킬을 레포 **최상위**(`academic-paper/` 등)에 두면서
+> 루트 `plugin.json`에는 `skills` 필드가 **없다**(자기네 `marketplace.json` 항목에만 skills를 나열).
+> `github` 소스는 대상 레포의 `plugin.json`을 읽으므로, 그대로 두면 스킬이 **0개** 로드된다.
+> 그래서 우리 `marketplace.json` 항목에 `"skills": ["./academic-paper", …]`를 직접 넣어 경로를
+> 알려준다(업스트림이 자기 마켓플레이스에서 쓰는 것과 동일한 필드라 스키마상 유효).
+
+```text
+/plugin marketplace update my-skills
+/plugin install humanize-korean@my-skills            # /humanize-korean:<name> 으로 노출
+/plugin install academic-research-skills@my-skills   # /academic-research-skills:<name> 으로 노출
+```
+
 ### 경로 B — vendoring (자급자족, 수동 동기화)
 
 업스트림 `SKILL.md`(+필요한 스크립트/자산)를 `cm8908-thirdparty/skills/<이름>/`에 복사하고,
