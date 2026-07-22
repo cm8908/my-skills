@@ -1,11 +1,11 @@
 ---
 name: msjung-doc-style
-description: 정민섭(Dnotitia SLM)의 한국어 기술 문서 작문 스타일 가이드. Confluence 실험 보고서, 리서치 노트, 사내 기술 문서를 작성·윤문·수정하는 모든 작업에서 반드시 이 스킬을 먼저 읽고 적용할 것. "내 스타일로", "윤문해줘", "가독성 개선", "문서로 정리", "컨플루언스에 써줘", "다듬어줘" 같은 요청은 물론, 한국어로 된 ML/기술 실험 결과·방법론·분석 텍스트를 새로 쓰거나 고치는 경우 명시적 요청이 없어도 적극적으로 트리거된다. 특히 SFT/RL/distillation/embedding/mechanistic interpretability 같은 post-training·multimodal 도메인 문서에 최적화되어 있다.
+description: 정민섭의 한국어 기술 문서 작문 스타일 가이드. Confluence 실험 보고서, 리서치 노트, 사내 기술 문서를 작성·윤문·수정하는 모든 작업에서 반드시 이 스킬을 먼저 읽고 적용할 것. "내 스타일로", "윤문해줘", "가독성 개선", "문서로 정리", "컨플루언스에 써줘", "다듬어줘" 같은 요청은 물론, 한국어로 된 ML/기술 실험 결과·방법론·분석 텍스트를 새로 쓰거나 고치는 경우 명시적 요청이 없어도 적극적으로 트리거된다. 특히 SFT/RL/distillation/embedding/mechanistic interpretability 같은 post-training·multimodal 도메인 문서에 최적화되어 있다.
 ---
 
 # 정민섭 기술 문서 스타일 가이드 (v-final)
 
-Dnotitia SLM 팀 실험 보고서·기술 문서용. 실제 문서 2건에 대한 4차례 저자 수정 diff를 역공학해 도출했다.
+Dnotitia LLM 팀 실험 보고서·기술 문서용. 실제 문서 2건에 대한 4차례 저자 수정 diff를 역공학해 도출했다.
 독자 모델은 "이 도메인은 알지만 이 실험은 처음 보는 팀원". 목표는 그가 사전 맥락 없이 evidence와 conclusion을
 구분하며 따라오게 만드는 것.
 
