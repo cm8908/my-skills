@@ -41,8 +41,9 @@ my-skills/
 - **`cm8908-custom`** — 앞으로 만들 잡다한 단독 커스텀 스킬의 "집". 폴더만 넣으면 끝.
 - **`cm8908-thirdparty`** — 외부에서 가져온(vendoring) 스킬. 출처/라이선스를 커스텀과 분리해 관리.
 
-> 처음엔 `cm8908-custom` / `cm8908-thirdparty`가 비어 있다(placeholder README만 존재).
-> 스킬을 하나라도 넣기 전엔 굳이 install 하지 않아도 된다.
+> 현재 `cm8908-custom`에는 4개(`delegate-or-promote`, `delegate-to-subagents`,
+> `karpathy-guidelines`, `msjung-doc-style`), `cm8908-thirdparty`에는 1개(`plain-english`)가
+> 들어 있다.
 
 ---
 
@@ -250,9 +251,28 @@ finalize, 4종 스킬 `academic-paper`/`academic-paper-reviewer`/`academic-pipel
 > 그래서 우리 `marketplace.json` 항목에 `"skills": ["./academic-paper", …]`를 직접 넣어 경로를
 > 알려준다(업스트림이 자기 마켓플레이스에서 쓰는 것과 동일한 필드라 스키마상 유효).
 
+[`blader/humanizer`](https://github.com/blader/humanizer)의 `humanizer` 플러그인(영문 산문에서
+AI 티 제거 — Wikipedia "Signs of AI writing"(WikiProject AI Cleanup) 기반 20여 개 패턴군 +
+before/after 예시, 사용자 글 샘플로 voice calibration, 무미건조해지지 않게 하는 PERSONALITY
+AND SOUL 패스, MIT)을 레포 루트가 곧 플러그인이라 `github` 소스로 참조한다.
+`humanize-korean`(한글)의 영어판 짝이다.
+
+[`conorbronsdon/avoid-ai-writing`](https://github.com/conorbronsdon/avoid-ai-writing)의
+`avoid-ai-writing` 플러그인(영문 AI-ism 감사·재작성 — detect/rewrite/edit 3모드, voice 프로파일
+5종, `--context linkedin|blog|docs|…` 프리셋, iterate-to-convergence, 결정론적 JS 패턴
+디텍터 동봉, MIT)은 모노레포 하위폴더(`plugins/avoid-ai-writing`)라 `git-subdir`로 참조한다.
+
+> **`humanizer` vs `avoid-ai-writing` vs `plain-english`:** 셋 다 "AI 티 제거"로 겹친다.
+> 골라 쓰는 기준 — 넓고 예시 풍부한 기본값은 `humanizer`, 파일 in-place 수정·감사만·채널별
+> 톤 프리셋이 필요하면 `avoid-ai-writing`, AI 티가 아니라 **문장 자체를 조이고 싶으면**
+> (수동태·추상명사 주어·라틴계 군더더기·죽은 은유 = Orwell/Gowers 계열) vendoring한
+> `plain-english`. 셋을 동시에 켜두면 트리거 문구가 서로 겹치니, 상시로는 하나만 켜는 걸 권한다.
+
 ```text
 /plugin marketplace update my-skills
 /plugin install humanize-korean@my-skills            # /humanize-korean:<name> 으로 노출
+/plugin install humanizer@my-skills                  # /humanizer:humanizer
+/plugin install avoid-ai-writing@my-skills           # /avoid-ai-writing:avoid-ai-writing
 /plugin install academic-research-skills@my-skills   # /academic-research-skills:<name> 으로 노출
 ```
 
@@ -288,6 +308,19 @@ git push
 
 **A vs B 요약:** 최신 유지가 중요하고 업스트림이 플러그인 형태다 → **A**.
 완전 자급자족·오프라인·업스트림 소멸 대비가 중요하거나 낱개 SKILL.md다 → **B**.
+
+#### 현재 vendoring한 서드파티 (경로 B)
+
+| 스킬 | 위치 | 업스트림 | 라이선스 |
+| --- | --- | --- | --- |
+| `karpathy-guidelines` | `cm8908-custom/skills/` (행동 지침 계열이라 커스텀 쪽) | `multica-ai/andrej-karpathy-skills` | MIT |
+| `plain-english` | `cm8908-thirdparty/skills/` | `b1rdmania/claude-plain-english-skill` | ⚠️ **없음** |
+
+> ⚠️ **`plain-english`은 업스트림에 라이선스가 없다.** LICENSE 파일도, README의 SPDX
+> 표기도 없다 — 즉 기본 저작권만 남아 있어 엄밀히는 재배포 근거가 없다. 개인용으로만
+> 두고, 이 레포 밖으로 재배포하지 않는다. 저자가 비호환 라이선스를 명시하면 삭제한다.
+> 낱개 `SKILL.md` + `REFERENCE.md` 두 파일뿐이라(`.claude-plugin/` 없음) 참조는 불가,
+> vendoring이 유일한 경로였다.
 
 ---
 

@@ -88,6 +88,29 @@
       "tags": ["third-party", "korean", "humanize", "writing", "ai-detector", "reference"]
     },
     {
+      "name": "humanizer",
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer",
+        "ref": "main"
+      },
+      "description": "[third-party: blader/humanizer] Strip signs of AI-generated writing from English prose, built on Wikipedia's \"Signs of AI writing\" guide (WikiProject AI Cleanup). ~20 pattern families with before/after examples, voice calibration from a writing sample, and a PERSONALITY AND SOUL pass so the rewrite isn't merely sterile. MIT.",
+      "category": "writing",
+      "tags": ["third-party", "writing", "editing", "humanize", "ai-detector", "reference"]
+    },
+    {
+      "name": "avoid-ai-writing",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/conorbronsdon/avoid-ai-writing.git",
+        "path": "plugins/avoid-ai-writing",
+        "ref": "main"
+      },
+      "description": "[third-party: conorbronsdon/avoid-ai-writing] Audit & rewrite English prose for AI-isms with three modes (detect-only / rewrite / edit-in-place), 5 voice profiles, per-channel context presets (linkedin/blog/docs/…), and iterate-to-convergence. Ships a deterministic JS pattern detector and documents detector false-positive rates on non-native writers. MIT.",
+      "category": "writing",
+      "tags": ["third-party", "writing", "editing", "ai-detector", "linting", "reference"]
+    },
+    {
       "name": "academic-research-skills",
       "source": {
         "source": "github",

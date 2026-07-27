@@ -28,5 +28,8 @@ skills/
 
 Update = re-copy from upstream at a newer commit and bump the SHA in `SOURCE.md`.
 
-> This README is a placeholder so the empty `skills/` directory is tracked by
-> git. Delete it once you add real skills.
+## Vendored here
+
+- `plain-english/` — Orwell/Gowers plain-prose rules + AI-detox audit/rewrite/edit.
+  From `b1rdmania/claude-plain-english-skill`. **No upstream license** — personal
+  use only, see its `SOURCE.md`.
