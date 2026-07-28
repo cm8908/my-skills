@@ -41,9 +41,9 @@ my-skills/
 - **`cm8908-custom`** — 앞으로 만들 잡다한 단독 커스텀 스킬의 "집". 폴더만 넣으면 끝.
 - **`cm8908-thirdparty`** — 외부에서 가져온(vendoring) 스킬. 출처/라이선스를 커스텀과 분리해 관리.
 
-> 현재 `cm8908-custom`에는 4개(`delegate-or-promote`, `delegate-to-subagents`,
-> `karpathy-guidelines`, `msjung-doc-style`), `cm8908-thirdparty`에는 1개(`plain-english`)가
-> 들어 있다.
+> 현재 `cm8908-custom`에는 5개(`delegate-or-promote`, `delegate-to-subagents`,
+> `karpathy-guidelines`, `msjung-doc-style`, `plain-technical-voice`),
+> `cm8908-thirdparty`에는 1개(`plain-english`)가 들어 있다.
 
 ---
 
